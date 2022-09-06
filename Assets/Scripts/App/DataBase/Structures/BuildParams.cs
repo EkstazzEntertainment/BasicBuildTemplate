@@ -12,5 +12,6 @@ namespace App.DataBase.Structures
         public string checkoutPath;
         public string keystorePath;
         public string keystorePass;
+        public int buildNumber;
     }
 }
