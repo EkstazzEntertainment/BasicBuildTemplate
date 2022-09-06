@@ -49,5 +49,10 @@ namespace App.DataBase
             var initialStructure = new T();
             TypeIntoText(path, initialStructure);
         }
+
+        public void RemoveDirectory(string path)
+        {
+            Directory.Delete(path,true);  
+        }
     }
 }

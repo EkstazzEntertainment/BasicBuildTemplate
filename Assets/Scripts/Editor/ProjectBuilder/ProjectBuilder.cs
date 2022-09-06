@@ -21,6 +21,9 @@ namespace Editor.ProjectBuilder
             PlayerSettings.keyaliasPass = buildParams.keystorePass;
             PlayerSettings.keystorePass = buildParams.keystorePass;
  
+            var dataBaseHelper = new DataBaseHelper();
+            dataBaseHelper.RemoveDirectory("Build/");
+
             if (buildParams.development)
             {
                 BuildDevelopmentApk();
@@ -35,21 +38,24 @@ namespace Editor.ProjectBuilder
             {
                 EditorUserBuildSettings.development = true;
                 EditorUserBuildSettings.buildAppBundle = false;
-                BuildPipeline.BuildPlayer(levels,$"Build/development/APK/{buildParams.name}{buildParams.buildNumber}DEV.apk", BuildTarget.Android, BuildOptions.Development);
+                var path = $"Build/development/APK/{buildParams.name}{buildParams.buildNumber}DEV.apk";
+                BuildPipeline.BuildPlayer(levels, path, BuildTarget.Android, BuildOptions.Development);
             }
             
             void BuildReleaseApk()
             {
                 EditorUserBuildSettings.development = false;
                 EditorUserBuildSettings.buildAppBundle = false;
-                BuildPipeline.BuildPlayer(levels,$"Build/release/APK/{buildParams.name}{buildParams.buildNumber}REL.apk", BuildTarget.Android, BuildOptions.None);
+                var path = $"Build/release/APK/{buildParams.name}{buildParams.buildNumber}REL.apk";
+                BuildPipeline.BuildPlayer(levels,path, BuildTarget.Android, BuildOptions.None);
             }
 
             void BuildReleaseAAb()
             {
                 EditorUserBuildSettings.development = false;
                 EditorUserBuildSettings.buildAppBundle = true;
-                BuildPipeline.BuildPlayer(levels,$"Build/release/AAB/{buildParams.name}{buildParams.buildNumber}REL.aab", BuildTarget.Android, BuildOptions.None);
+                var path = $"Build/release/AAB/{buildParams.name}{buildParams.buildNumber}REL.aab";
+                BuildPipeline.BuildPlayer(levels, path, BuildTarget.Android, BuildOptions.None);
             }
         }
         
