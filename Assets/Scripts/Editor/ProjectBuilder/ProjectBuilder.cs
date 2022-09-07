@@ -38,7 +38,7 @@ namespace Editor.ProjectBuilder
             {
                 EditorUserBuildSettings.development = true;
                 EditorUserBuildSettings.buildAppBundle = false;
-                var path = $"Build/development/APK/{buildParams.name}{buildParams.buildNumber}DEV.apk";
+                var path = $"Build/APK/{buildParams.name}{buildParams.buildNumber}DEV.apk";
                 BuildPipeline.BuildPlayer(levels, path, BuildTarget.Android, BuildOptions.Development);
             }
             
@@ -46,7 +46,7 @@ namespace Editor.ProjectBuilder
             {
                 EditorUserBuildSettings.development = false;
                 EditorUserBuildSettings.buildAppBundle = false;
-                var path = $"Build/release/APK/{buildParams.name}{buildParams.buildNumber}REL.apk";
+                var path = $"Build/APK/{buildParams.name}{buildParams.buildNumber}REL.apk";
                 BuildPipeline.BuildPlayer(levels,path, BuildTarget.Android, BuildOptions.None);
             }
 
@@ -54,7 +54,7 @@ namespace Editor.ProjectBuilder
             {
                 EditorUserBuildSettings.development = false;
                 EditorUserBuildSettings.buildAppBundle = true;
-                var path = $"Build/release/AAB/{buildParams.name}{buildParams.buildNumber}REL.aab";
+                var path = $"Build/AAB/{buildParams.name}{buildParams.buildNumber}REL.aab";
                 BuildPipeline.BuildPlayer(levels, path, BuildTarget.Android, BuildOptions.None);
             }
         }
