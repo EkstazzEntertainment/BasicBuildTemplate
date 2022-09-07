@@ -52,7 +52,10 @@ namespace App.DataBase
 
         public void RemoveDirectory(string path)
         {
-            Directory.Delete(path,true);  
+            if (Directory.Exists(path))
+            {
+                Directory.Delete(path,true);
+            }
         }
     }
 }
