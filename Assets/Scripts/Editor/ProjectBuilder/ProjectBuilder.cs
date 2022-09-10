@@ -22,7 +22,8 @@ namespace Editor.ProjectBuilder
             PlayerSettings.keystorePass = buildParams.keystorePass;
  
             PlayerSettings.bundleVersion = buildParams.buildNumber.ToString();
-
+            PlayerSettings.Android.bundleVersionCode = buildParams.buildNumber;
+            
             var dataBaseHelper = new DataBaseHelper();
             dataBaseHelper.RemoveDirectory("Build/");
 
