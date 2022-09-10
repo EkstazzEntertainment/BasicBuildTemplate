@@ -21,6 +21,8 @@ namespace Editor.ProjectBuilder
             PlayerSettings.keyaliasPass = buildParams.keystorePass;
             PlayerSettings.keystorePass = buildParams.keystorePass;
  
+            PlayerSettings.bundleVersion = buildParams.buildNumber.ToString();
+
             var dataBaseHelper = new DataBaseHelper();
             dataBaseHelper.RemoveDirectory("Build/");
 
