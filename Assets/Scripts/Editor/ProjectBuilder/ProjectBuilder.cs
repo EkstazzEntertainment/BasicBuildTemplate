@@ -69,9 +69,10 @@ namespace Editor.ProjectBuilder
             string[] levels = GetAllScenes();
 
             PlayerSettings.applicationIdentifier = buildParams.id;
-            PlayerSettings.SetApplicationIdentifier(BuildTargetGroup.Android, buildParams.id);
- 
+            PlayerSettings.SetApplicationIdentifier(BuildTargetGroup.iOS, buildParams.id);
+            
             PlayerSettings.bundleVersion = buildParams.buildNumber.ToString();
+            PlayerSettings.iOS.buildNumber = buildParams.buildNumber.ToString();
             
             var dataBaseHelper = new DataBaseHelper();
             dataBaseHelper.RemoveDirectory("Build/");
