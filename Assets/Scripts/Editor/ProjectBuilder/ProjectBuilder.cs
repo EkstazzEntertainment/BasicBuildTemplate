@@ -5,7 +5,7 @@ namespace Editor.ProjectBuilder
     using App.DataBase.Structures;
     using UnityEditor;
 
-
+    
     public class ProjectBuilder
     {
         [MenuItem("Build/Android Build")]
