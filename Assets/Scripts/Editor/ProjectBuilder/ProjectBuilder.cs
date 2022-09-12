@@ -73,6 +73,7 @@ namespace Editor.ProjectBuilder
             
             PlayerSettings.bundleVersion = buildParams.buildNumber.ToString();
             PlayerSettings.iOS.buildNumber = buildParams.buildNumber.ToString();
+            PlayerSettings.iOS.appleEnableAutomaticSigning = true;
             
             var dataBaseHelper = new DataBaseHelper();
             dataBaseHelper.RemoveDirectory("Build/");
