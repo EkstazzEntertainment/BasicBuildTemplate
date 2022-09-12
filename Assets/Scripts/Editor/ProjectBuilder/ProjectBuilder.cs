@@ -65,7 +65,39 @@ namespace Editor.ProjectBuilder
         [MenuItem("Build/iOS Build")]
         public static void BuildIOS()
         {
+            GetParamsFile<BuildParams>(out var buildParams);
+            string[] levels = GetAllScenes();
+
+            PlayerSettings.applicationIdentifier = buildParams.id;
+            PlayerSettings.SetApplicationIdentifier(BuildTargetGroup.Android, buildParams.id);
+ 
+            PlayerSettings.bundleVersion = buildParams.buildNumber.ToString();
             
+            var dataBaseHelper = new DataBaseHelper();
+            dataBaseHelper.RemoveDirectory("Build/");
+
+            if (buildParams.development)
+            {
+                BuildIOSDevelopment();
+            }
+            else
+            {
+                BuildIOSRelease();
+            }
+
+            void BuildIOSDevelopment()
+            {
+                EditorUserBuildSettings.development = true;
+                var path = $"Build/";
+                BuildPipeline.BuildPlayer(levels, path, BuildTarget.iOS, BuildOptions.Development);
+            }
+            
+            void BuildIOSRelease()
+            {
+                EditorUserBuildSettings.development = false;
+                var path = $"Build/";
+                BuildPipeline.BuildPlayer(levels, path, BuildTarget.iOS, BuildOptions.DetailedBuildReport);
+            }
         }
 
         private static string[] GetAllScenes()
