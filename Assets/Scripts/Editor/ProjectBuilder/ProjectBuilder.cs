@@ -13,7 +13,9 @@ namespace Editor.ProjectBuilder
         {
             GetParamsFile<BuildParams>(out var buildParams);
             string[] levels = GetAllScenes();
- 
+
+            PlayerSettings.productName = buildParams.name;
+                
             PlayerSettings.applicationIdentifier = buildParams.id;
             PlayerSettings.SetApplicationIdentifier(BuildTargetGroup.Android, buildParams.id);
 
