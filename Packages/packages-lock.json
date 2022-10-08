@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.ekstazz.githubpackageregistry": {
+      "version": "git@github.com:EkstazzEntertainment/com.ekstazz.githubpackageregistry.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "804266ef3b39786923cf010ac1e584524a0442e8"
+    },
     "com.unity.collab-proxy": {
       "version": "1.17.1",
       "depth": 0,
