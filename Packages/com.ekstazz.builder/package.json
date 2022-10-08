@@ -1,11 +1,10 @@
 {
   "name": "com.ekstazz.builder",
   "displayName": "Ekstazz Builder",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "unity": "2019.1",
   "description": "Builder",
   "dependencies": {
-    "com.ekstazz.core" : "1.0.0",
     "jillejr.newtonsoft.json-for-unity": "1.0.0"
   },
   "repository": "https://github.com/georgealexanian/packages.git",
