@@ -1,5 +1,7 @@
 namespace Editor.ProjectBuilder
 {
+#if UNITY_EDITOR
+
     using System.Collections.Generic;
     using App.DataBase;
     using App.DataBase.Structures;
@@ -128,4 +130,6 @@ namespace Editor.ProjectBuilder
         }
     }
     
+#endif
+
 }
